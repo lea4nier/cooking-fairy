@@ -25,7 +25,7 @@ class Page1 extends Phaser.Scene {
         background.setPosition(0, 0);  // Position the background at the top-left corner
 
         // Create a large invisible hitbox in the bottom-right corner
-        const hitbox = this.add.zone(canvasWidth - 100, canvasHeight - 100, 200, 100).setOrigin(1, 1);
+        const hitbox = this.add.zone(canvasWidth - 100, canvasHeight - 100, 400, 400).setOrigin(1, 1);
         hitbox.setInteractive();
 
         // Make the hitbox clickable to transition to the next scene

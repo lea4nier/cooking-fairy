@@ -15,12 +15,12 @@ class Day1Flower extends Phaser.Scene {
         const canvasHeight = this.game.config.height;
 
         // Set up the background color to white
-        this.cameras.main.setBackgroundColor('#FFFFFF');
+        this.cameras.main.setBackgroundColor('#debdcf');
 
         // Define the spacing and center the images equally
         const spacing = 600; // Adjust this value for the desired spacing
-        const startX = (canvasWidth - (spacing * 2 + 200)) / 2; // Calculate the starting X position to center the images
-
+        const offsetX = 50; // Move the images right by half an inch (approximately 50px)
+        const startX = (canvasWidth - (spacing * 2)) / 2 + offsetX; // Center the images and adjust position
         // Create 3 images for the player to choose from, spaced equally
         const imageObj1 = this.add.image(startX, canvasHeight / 2, 'flower1').setInteractive();
         const imageObj2 = this.add.image(startX + spacing, canvasHeight / 2, 'flower2').setInteractive();
