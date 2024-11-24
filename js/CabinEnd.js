@@ -45,7 +45,7 @@ class CabinEnd extends Phaser.Scene {
 
         // Add a click event listener to the arrow
         arrow.on('pointerdown', () => {
-            window.location.href = 'ending.html'; // Replace with the HTML page you want to redirect to
+            window.location.href = 'brownies.html'; // Replace with the HTML page you want to redirect to
         });
     }
 }

@@ -29,16 +29,17 @@ body {
 .title-container {
     text-align: center;
     max-width: 400px;
-    margin: 100px auto; 
+    margin: 100px auto;
     padding: 20px;
     margin-top: -200px;
 }
 
 .game-title-image {
-    max-width: 100%; /* Ensures the image fits within the container */
-    height: auto; /* Maintains the aspect ratio */
-    margin: 0 auto; /* Centers the image horizontally */
-    display: block; /* Makes it a block element so it centers */
+    max-width: 100%;
+    /* Ensures the image fits within the container /
+    height: auto; / Maintains the aspect ratio /
+    margin: 0 auto; / Centers the image horizontally /
+    display: block; / Makes it a block element so it centers */
 }
 
 .game-subtitle {
@@ -48,16 +49,22 @@ body {
 }
 
 #start-button {
-    margin-top: 30px; /* Add more space between subtitle and button */
+    margin-top: 30px;
+    /* Add more space between subtitle and button */
 }
 
 #animation-container {
     position: relative;
-    width: 500px; /* Adjust to your desired size */
-    height: 500px; /* Adjust to your desired size */
-    margin-top: 50px; /* Adds a margin above the container */
-    margin-left: auto; /* Centers horizontally */
-    margin-right: auto; /* Centers horizontally */
+    width: 500px;
+    /* Adjust to your desired size */
+    height: 500px;
+    /* Adjust to your desired size */
+    margin-top: 50px;
+    /* Adds a margin above the container */
+    margin-left: auto;
+    /* Centers horizontally */
+    margin-right: auto;
+    /* Centers horizontally */
     margin-bottom: 0px;
 }
 
@@ -67,6 +74,13 @@ body {
     height: 100%;
     object-fit: cover;
     transition: opacity 0.25s ease-in-out;
+}
+
+.game-title-container {
+    text-align: center;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
 }
 
 
@@ -81,25 +95,24 @@ body {
     text-align: left;
 }
 
-.text-title {
+.game-title {
     font-family: "Faculty Glyphic", sans-serif;
     font-size: 3rem;
-    /* margin: 0; */
-    color: #ffffff;
-    margin-bottom: 40px;
+    color: #f39c12;
 }
-  
+
 .text-text {
     font-size: 1.5rem;
     line-height: 1.8;
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
-  
+
 .typing-animation {
     font-size: 1.2rem;
     color: #f1faee;
-    white-space: pre-wrap; /* Preserve spaces and line breaks */
+    white-space: pre-wrap;
+    /* Preserve spaces and line breaks */
     word-wrap: break-word;
     text-align: left;
     width: 100%;
@@ -107,11 +120,13 @@ body {
 }
 
 .typing-animation span {
-    display: inline-block; /* Keeps each character inline but separate for individual styling */
+    display: inline-block;
+    /* Keeps each character inline but separate for individual styling */
 }
 
 .highlight {
-    color: #ff6347; /* Example color, you can change it */
+    color: #ff6347;
+    /* Example color, you can change it */
     font-weight: bold;
     font-style: italic;
 }
@@ -127,22 +142,30 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-    display: block; /* Ensures the button is a block-level element */
-    margin-top: 0; /* No spacing above */
-    margin-left: auto; /* Centers the button horizontally */
-    margin-right: auto; /* Centers the button horizontally */
+    display: block;
+    /* Ensures the button is a block-level element */
+    margin-top: 0;
+    /* No spacing above */
+    margin-left: auto;
+    /* Centers the button horizontally */
+    margin-right: auto;
+    /* Centers the button horizontally */
 }
 
 .start-button:hover {
-    background: #a8dadc; /* Change background on hover */
-    color: #1d3557; /* Text color on hover */
+    background: #a8dadc;
+    /* Change background on hover */
+    color: #1d3557;
+    /* Text color on hover */
     border-color: #a8dadc;
 }
 
 .image-button {
     display: none;
-    margin-left: 0; /* Align with container */
-    padding: 0; /* Reset padding */
+    margin-left: 0;
+    /* Align with container */
+    padding: 0;
+    /* Reset padding */
     border: none;
     background: none;
     cursor: pointer;
@@ -150,7 +173,8 @@ body {
 }
 
 .image-button.show {
-    display: inline-block; /* Show the button */
+    display: inline-block;
+    /* Show the button */
 }
 
 .image-button img {

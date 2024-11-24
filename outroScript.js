@@ -1,10 +1,10 @@
 (() => {
     const textElement = document.getElementById('text-text');
-    const nextButton = document.getElementById('next-button');
+    const nextButton = document.getElementById('image-button');
     const clickSound = document.getElementById('click-sound');
     
     const text = `The door is wide open, you see the sun shining, and a gift basket filled with goodies from your new forgiving neighbors lies at the doorstep.`
-    
+
     const timings = {
         baseSpeed: 50,
         periodPause: 500,
