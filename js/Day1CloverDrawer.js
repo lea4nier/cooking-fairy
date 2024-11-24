@@ -8,13 +8,17 @@ class Day1CloverDrawer extends Phaser.Scene {
         this.load.image('clover1', 'assets/images/clover1.png');
         this.load.image('clover2', 'assets/images/clover2.png');
         this.load.image('clover3', 'assets/images/clover3.png');
+
+        // Load the sound files
+        this.load.audio('correctSound', 'assets/sounds/Correct.mp3');  // Correct sound
+        this.load.audio('wrongSound', 'assets/sounds/Wrong.mp3');      // Wrong sound
     }
 
     create() {
         const canvasWidth = this.game.config.width;
         const canvasHeight = this.game.config.height;
 
-        // Set up the background color to white
+        // Set up the background color to a muted green
         this.cameras.main.setBackgroundColor('#736785');
 
         // Define the spacing and center the images equally
@@ -36,6 +40,11 @@ class Day1CloverDrawer extends Phaser.Scene {
     handleSelection(selectedId) {
         // The correct item is Clover 1 (for this example)
         const correctItem = 1;
+
+        // Only play the sound if the selection is incorrect
+        if (selectedId !== correctItem) {
+            this.sound.play('wrongSound'); // Play Wrong sound if selected incorrectly
+        }
 
         // If Clover 1 is selected, go to the 'Good' scene
         if (selectedId === correctItem) {

@@ -6,9 +6,15 @@ class Page1 extends Phaser.Scene {
     preload() {
         // Load the background image
         this.load.image('page1', 'assets/images/Book_Day01.png');
+
+        // Load the PageFlip sound
+        this.load.audio('pageFlip', 'assets/sounds/PageFlip.mp3');
     }
 
     create() {
+        // Play the PageFlip sound as soon as the scene starts
+        this.sound.play('pageFlip');
+
         const canvasWidth = this.game.config.width;
         const canvasHeight = this.game.config.height;
 

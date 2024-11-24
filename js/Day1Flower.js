@@ -8,6 +8,10 @@ class Day1Flower extends Phaser.Scene {
         this.load.image('flower1', 'assets/images/flower1.png');
         this.load.image('flower2', 'assets/images/flower2.png');
         this.load.image('flower3', 'assets/images/flower3.png');
+
+        // Load the sound files
+        this.load.audio('correctSound', 'assets/sounds/Click.mp3');
+        this.load.audio('wrongSound', 'assets/sounds/Wrong.mp3');
     }
 
     create() {
@@ -21,6 +25,7 @@ class Day1Flower extends Phaser.Scene {
         const spacing = 600; // Adjust this value for the desired spacing
         const offsetX = 50; // Move the images right by half an inch (approximately 50px)
         const startX = (canvasWidth - (spacing * 2)) / 2 + offsetX; // Center the images and adjust position
+
         // Create 3 images for the player to choose from, spaced equally
         const imageObj1 = this.add.image(startX, canvasHeight / 2, 'flower1').setInteractive();
         const imageObj2 = this.add.image(startX + spacing, canvasHeight / 2, 'flower2').setInteractive();
@@ -35,6 +40,13 @@ class Day1Flower extends Phaser.Scene {
     handleSelection(selectedId) {
         // The correct item is Flower 1 (for this example)
         const correctItem = 1;
+
+        // Play sound based on selection
+        if (selectedId === correctItem) {
+            this.sound.play('correctSound'); // Play "Click" sound if correct
+        } else {
+            this.sound.play('wrongSound'); // Play "Wrong" sound if incorrect
+        }
 
         // Update the collected item status in the Cabin1 scene
         const cabinScene = this.scene.manager.getScene('Cabin1');

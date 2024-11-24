@@ -8,6 +8,9 @@ class Boil extends Phaser.Scene {
         this.load.image('boil1', 'assets/images/Boil_Anim_001.png');
         this.load.image('boil2', 'assets/images/Boil_Anim_002.png');
         this.load.image('boil3', 'assets/images/Boil_Anim_003.png');
+
+        // Load the boiling sound
+        this.load.audio('boiling', 'assets/sounds/Boiling.mp3');
     }
 
     create() {
@@ -57,7 +60,10 @@ class Boil extends Phaser.Scene {
         )
             .setOrigin(0.5, 0.5)
             .setInteractive()
-            .on('pointerdown', () => this.scene.start('CabinEnd')); // Transition back to 'Cabin2' scene
+            .on('pointerdown', () => {
+                this.stopBoilSound(); // Stop the boiling sound when ending the boil
+                this.scene.start('CabinEnd'); // Transition back to 'CabinEnd' scene
+            });
     }
 
     startBoilAnimation(boilImage, scale) {
@@ -95,9 +101,20 @@ class Boil extends Phaser.Scene {
                     countdownTimer.remove(); // Stop countdown
                     animationTimer.remove(); // Stop boil animation
                     boilImage.setTexture('boil1'); // Reset to initial frame
+                    this.stopBoilSound(); // Stop the boiling sound when time is up
                 }
             }
         });
+
+        // Play the boiling sound
+        this.boilingSound = this.sound.add('boiling', { loop: true, volume: 0.5 });
+        this.boilingSound.play();
     }
 
+    // Method to stop the boiling sound
+    stopBoilSound() {
+        if (this.boilingSound) {
+            this.boilingSound.stop();
+        }
+    }
 }

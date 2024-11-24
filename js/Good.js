@@ -8,9 +8,24 @@ class Good extends Phaser.Scene {
         this.load.image('cabinBackground', 'assets/images/Cabin_001.png');
         this.load.image('glow_01', 'assets/images/glow_01.png');
         this.load.image('glow_02', 'assets/images/glow_02.png');
+
+        // Load the sound
+        this.load.audio('correctSound', 'assets/sounds/Correct.mp3');
     }
 
     create() {
+        // Check if the sound is loaded and available
+        const correctSound = this.sound.get('correctSound');
+
+        if (correctSound) {
+            console.log("Sound loaded successfully!");  // For debugging
+        } else {
+            console.error("Sound not loaded!");  // In case the sound isn't loaded
+        }
+
+        // Play the Correct sound immediately for testing
+        this.sound.play('correctSound');
+
         // Display the background image
         const background = this.add.image(0, 0, 'cabinBackground').setOrigin(0, 0);
 
@@ -41,7 +56,6 @@ class Good extends Phaser.Scene {
             this.cameras.main.height / 2, // Y position (center)
             400, // Width of the hitbox
             400, // Height of the hitbox
-
         );
         hitbox.setInteractive(); // Make the hitbox interactive
 

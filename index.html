@@ -1,41 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Break the Curse!</title>
-
-    <!-- CSS stylesheet(s) -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-
-    <!-- Library script(s) -->
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.js"></script>
-
-    <!-- My script(s) -->
-    <script src="js/Page1.js" defer></script>
-    <script src="js/cabin1.js" defer></script>
-    <script src="js/Day1Feather.js" defer></script>
-    <script src="js/Day1Flower.js" defer></script>
-    <script src="js/Day1CloverDrawer.js" defer></script>
-    <script src="js/Good.js" defer></script>
-    <script src="js/Page2.js" defer></script>
-    <script src="js/cabin2.js" defer></script>
-    <script src="js/Boil.js" defer></script>
-    <script src="js/CabinEnd.js" defer></script>
-    <script src="js/main.js" defer></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMERella Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <!-- Intro content -->
-    <div id="intro-container">
-        <h1>Welcome to the Game</h1>
-        <button id="start-button">Start Game</button>
-    </div>
+    <audio id="background-audio" autoplay loop>
+        <source src="Intro.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Phaser game container -->
-    <div id="game-container" style="display: none;"></div>
+    <audio id="click-sound" src="Click.mp3" preload="auto"></audio>
+
+    <div id="content"></div>
+
+    <script>
+        // List of game "pages" and their associated JavaScript files
+        const pages = [
+            { html: 'title.html', script: 'titleScript.js' },
+            { html: 'intro01.html', script: 'intro01Script.js' },
+            { html: 'intro02.html', script: 'intro02Script.js' },
+            { html: 'intro03.html', script: 'intro03Script.js' },
+            { html: 'intro04.html', script: 'intro04Script.js' }
+        ];
+
+        let currentPageIndex = 0;
+
+        // Load the first page (Opening Page) on initial load
+        window.onload = () => {
+            loadNextPage();
+        };
+
+        // Function to load the next page
+        function loadNextPage() {
+            if (currentPageIndex < pages.length) {
+                const { html, script } = pages[currentPageIndex];
+
+                fetch(html)
+                    .then(response => response.text())
+                    .then(htmlContent => {
+                        document.getElementById('content').innerHTML = htmlContent;
+
+                        // Dynamically load the corresponding script
+                        loadScript(script);
+
+                        currentPageIndex++;
+                    })
+                    .catch(err => console.error('Error loading page:', err));
+            } else {
+                // Replace this block to link to phaser.html
+                window.location.href = 'phaser.html';
+            }
+        }
+
+        // Function to dynamically load a script
+        function loadScript(scriptSrc) {
+            const script = document.createElement('script');
+            script.src = scriptSrc;
+            script.type = 'text/javascript';
+            document.body.appendChild(script);
+        }
+
+        // Make loadNextPage globally available
+        window.loadNextPage = loadNextPage;
+    </script>
 </body>
 
 </html>

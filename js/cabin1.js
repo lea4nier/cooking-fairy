@@ -6,6 +6,9 @@ class Cabin1 extends Phaser.Scene {
     preload() {
         // Load the Cabin1 background image
         this.load.image('cabinBackground', 'assets/images/Cabin_001.png');
+
+        // Load the Hearth sound
+        this.load.audio('hearth', 'assets/sounds/Hearth.mp3');
     }
 
     create() {
@@ -21,6 +24,9 @@ class Cabin1 extends Phaser.Scene {
         background.setOrigin(0, 0);  // Set origin to top-left corner
         background.setDisplaySize(canvasWidth, canvasHeight);  // Fit background to canvas size
 
+        // Play the Hearth sound in a loop
+        this.hearthSound = this.sound.add('hearth', { loop: true, volume: 0.5 });
+        this.hearthSound.play();
 
         // Top-left corner hitbox (to transition to Day1Feather)
         const hitboxTopLeft = this.add.rectangle(0, 0, 300, 300, 0x000000, 0)  // invisible box

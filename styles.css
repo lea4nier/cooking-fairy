@@ -1,0 +1,166 @@
+/* ===============================
+   Import Fonts
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Marcellus&display=swap');
+
+/* ===============================
+  Global Styles
+================================ */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+    background: #506345;
+    color: #ffffff;
+    justify-content: left;
+    align-items: left;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+
+/* ===============================
+  Title Page
+================================ */
+
+.title-container {
+    text-align: center;
+    max-width: 400px;
+    margin: 100px auto; 
+    padding: 20px;
+    margin-top: 0px;
+}
+
+.game-title {
+    font-family: "Faculty Glyphic", sans-serif;
+    font-size: 3rem;
+    color: #f39c12;
+}
+
+.game-subtitle {
+    font-family: "Faculty Glyphic", sans-serif;
+    font-size: 1.5rem;
+    color: #f39c12;
+}
+
+#start-button {
+    margin-top: 30px; /* Add more space between subtitle and button */
+}
+
+#animation-container {
+    position: relative;
+    width: 300px; /* Adjust to your desired size */
+    height: 300px; /* Adjust to your desired size */
+    margin-top: 50px; /* Adds a margin above the container */
+    margin-left: auto; /* Centers horizontally */
+    margin-right: auto; /* Centers horizontally */
+    margin-bottom: 0px;
+}
+
+#animation-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.25s ease-in-out;
+}
+
+
+/* ===============================
+  Text Pages
+================================ */
+
+.text-container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+    text-align: left; /* Ensure text starts from the left */
+    white-space: pre-wrap; /* Preserve spaces and line breaks */
+    word-wrap: break-word; /* Break long words */
+}
+
+.text-title {
+    font-family: "Faculty Glyphic", sans-serif;
+    font-size: 3rem;
+    margin: 0;
+    color: #ffffff;
+}
+  
+.text-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+  
+.typing-animation {
+    font-size: 1.2rem;
+    color: #f1faee;
+    white-space: pre-wrap; /* Preserve spaces and line breaks */
+    word-wrap: break-word;
+    text-align: left;
+    width: 100%;
+    display: block;
+}
+
+.typing-animation span {
+    display: inline-block; /* Keeps each character inline but separate for individual styling */
+}
+
+.highlight {
+    color: #ff6347; /* Example color, you can change it */
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* ===============================
+   Button Styles
+================================ */
+
+.start-button {
+    padding: 10px 20px;
+    background-color: #457b9d;
+    font-family: "Faculty Glyphic", sans-serif;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: block; /* Ensures the button is a block-level element */
+    margin-top: 0; /* No spacing above */
+    margin-left: auto; /* Centers the button horizontally */
+    margin-right: auto; /* Centers the button horizontally */
+}
+
+.start-button:hover {
+    background: #a8dadc; /* Change background on hover */
+    color: #1d3557; /* Text color on hover */
+    border-color: #a8dadc;
+}
+
+.next-button {
+    padding: 10px 20px;
+    background-color: #457b9d;
+    font-family: "Faculty Glyphic", sans-serif;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: block; /* Make sure the button is displayed */
+    margin-top: 0; /* No spacing above */
+    opacity: 0; /* Initially invisible */
+    pointer-events: none; /* Disable interaction when hidden */
+    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+}
+
+.next-button.show {
+    opacity: 1; /* Fully visible */
+    pointer-events: auto; /* Enable interaction when shown */
+}
+
+.next-button:hover {
+    background: #a8dadc; /* Change background on hover */
+    color: #1d3557; /* Text color on hover */
+    border-color: #a8dadc;
+}
