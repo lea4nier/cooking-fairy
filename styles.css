@@ -22,7 +22,6 @@ body {
     overflow-y: scroll;
 }
 
-
 /* ===============================
   Title Page
 ================================ */
@@ -32,19 +31,20 @@ body {
     max-width: 400px;
     margin: 100px auto; 
     padding: 20px;
-    margin-top: 0px;
+    margin-top: -200px;
 }
 
-.game-title {
-    font-family: "Faculty Glyphic", sans-serif;
-    font-size: 3rem;
-    color: #f39c12;
+.game-title-image {
+    max-width: 100%; /* Ensures the image fits within the container */
+    height: auto; /* Maintains the aspect ratio */
+    margin: 0 auto; /* Centers the image horizontally */
+    display: block; /* Makes it a block element so it centers */
 }
 
 .game-subtitle {
     font-family: "Faculty Glyphic", sans-serif;
     font-size: 1.5rem;
-    color: #f39c12;
+    color: #000000;
 }
 
 #start-button {
@@ -53,8 +53,8 @@ body {
 
 #animation-container {
     position: relative;
-    width: 300px; /* Adjust to your desired size */
-    height: 300px; /* Adjust to your desired size */
+    width: 500px; /* Adjust to your desired size */
+    height: 500px; /* Adjust to your desired size */
     margin-top: 50px; /* Adds a margin above the container */
     margin-left: auto; /* Centers horizontally */
     margin-right: auto; /* Centers horizontally */
@@ -77,17 +77,16 @@ body {
 .text-container {
     max-width: 800px;
     margin: 100px auto;
-    padding: 20px;
-    text-align: left; /* Ensure text starts from the left */
-    white-space: pre-wrap; /* Preserve spaces and line breaks */
-    word-wrap: break-word; /* Break long words */
+    padding: 50px;
+    text-align: left;
 }
 
 .text-title {
     font-family: "Faculty Glyphic", sans-serif;
     font-size: 3rem;
-    margin: 0;
+    /* margin: 0; */
     color: #ffffff;
+    margin-bottom: 40px;
 }
   
 .text-text {
@@ -123,7 +122,7 @@ body {
 
 .start-button {
     padding: 10px 20px;
-    background-color: #457b9d;
+    background-color: #736785;
     font-family: "Faculty Glyphic", sans-serif;
     color: white;
     border: none;
@@ -140,27 +139,21 @@ body {
     border-color: #a8dadc;
 }
 
-.next-button {
-    padding: 10px 20px;
-    background-color: #457b9d;
-    font-family: "Faculty Glyphic", sans-serif;
-    color: white;
+.image-button {
+    display: none;
+    margin-left: 0; /* Align with container */
+    padding: 0; /* Reset padding */
     border: none;
+    background: none;
     cursor: pointer;
-    display: block; /* Make sure the button is displayed */
-    margin-top: 0; /* No spacing above */
-    opacity: 0; /* Initially invisible */
-    pointer-events: none; /* Disable interaction when hidden */
-    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+    margin-top: 40px;
 }
 
-.next-button.show {
-    opacity: 1; /* Fully visible */
-    pointer-events: auto; /* Enable interaction when shown */
+.image-button.show {
+    display: inline-block; /* Show the button */
 }
 
-.next-button:hover {
-    background: #a8dadc; /* Change background on hover */
-    color: #1d3557; /* Text color on hover */
-    border-color: #a8dadc;
+.image-button img {
+    width: 150px;
+    height: auto;
 }

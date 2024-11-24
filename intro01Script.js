@@ -1,12 +1,12 @@
 (() => {
     const textElement = document.getElementById('text-text');
-    const nextButton = document.getElementById('next-button');
+    const nextButton = document.getElementById('image-button');
     const clickSound = document.getElementById('click-sound');
 
-    const text = `After several days of travel you see a familiar sight appear in the distance. The cabin where your grandmother used to watch you during the harvest season.\n\nYour parents would often share a knowing look and a silent chuckle whenever you returned home, filled with stories of fairies, magic, and the strange wonders of that place. But you always swore it felt real—at least, until you grew up and forgot about it.\n\nNow, decades later, after countless harvests of your own, you’re back with only one thing on your mind: rest. Peace. A chance to breathe, and maybe, just maybe, see if those childhood memories were more than just the musings of an overactive imagination.`
+    const text = `After several days of travel, you see a familiar sight appear in the distance. Your grandmother’s cabin.\n\nYou used to stay there during harvest season, spending quality time with your grandmother and the forest.\n\nYour parents would share a knowing look and a silent chuckle whenever you returned home, filled with stories of fairies, magic, and the strange wonders of the forest next door. But you always swore it felt real.\n\nNow, decades later, you’re back with only one thing on your mind: Peace. Rest. A chance to breathe. And maybe, just maybe, to see if those childhood memories were more than just the musings of an overactive imagination...`     
     
     const timings = {
-        baseSpeed: 50,
+        baseSpeed: 40,
         periodPause: 500,
         commaPause: 300,
         colonPause: 400,
@@ -59,3 +59,4 @@
         };
     });
 })();
+

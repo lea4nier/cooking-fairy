@@ -1,12 +1,12 @@
 (() => {
     const textElement = document.getElementById('text-text');
-    const nextButton = document.getElementById('next-button');
+    const nextButton = document.getElementById('image-button');
     const clickSound = document.getElementById('click-sound');
 
     const text ='You wake up the next morning ready to take on the day repairing, cleaning and settling in for a few weeks of rest, but when you go to open the door...'        
     
     const timings = {
-        baseSpeed: 50,
+        baseSpeed: 40,
         periodPause: 500,
         commaPause: 300,
         colonPause: 400,

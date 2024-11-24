@@ -1,9 +1,9 @@
 (() => {
     const textElement = document.getElementById('text-text');
-    const nextButton = document.getElementById('next-button');
+    const nextButton = document.getElementById('image-button');
     const clickSound = document.getElementById('click-sound');
 
-    const text =`The door is locked, and someone has slipped a note under the door:\n\nYou borrowed something but forgot to ask, now brewing us a potion will be your Task. \n\n“Potions, I don’t know anything about potions, oh dear. Maybe my grandmother’s old cookbook might have something I can use”. You take a look around the cabin spotting books, drawers, and jars filled with ingredients…`
+    const text = `The door is locked, and someone has slipped a note under the door:\n\nYou borrowed something but forgot to ask, now brewing us a potion will be your Task. \n\n“Potions, I don’t know anything about potions, oh dear. Maybe my grandmother’s old cookbook might have something I can use”. You take a look around the cabin spotting books, drawers, and jars filled with ingredients…`
 
     const timings = {
         baseSpeed: 50,
@@ -55,7 +55,7 @@
         clickSound.play();
         clickSound.onended = () => {
             console.log('Next button clicked on intro01 page');
-            loadNextPage(); 
+            loadNextPage();
         };
     });
 })();
