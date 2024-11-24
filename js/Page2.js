@@ -9,6 +9,9 @@ class Page2 extends Phaser.Scene {
 
         // Load the PageFlip sound
         this.load.audio('pageFlip', 'assets/sounds/PageFlip.mp3');
+
+        // Load the arrow image
+        this.load.image('arrow', 'assets/images/arrow.png');
     }
 
     create() {
@@ -30,7 +33,19 @@ class Page2 extends Phaser.Scene {
         background.setScale(scale);  // Apply the scaling factor
         background.setPosition(0, 0);  // Position the background at the top-left corner
 
-        // Create a large invisible hitbox in the bottom-right corner
+        // Create the arrow image and position it at the bottom-right corner
+        const arrow = this.add.image(canvasWidth - 200, canvasHeight - 150, 'arrow'); // Adjust position as needed
+        arrow.setOrigin(0.5, 0.5); // Set the origin to the center of the arrow
+
+        // Make the arrow interactive
+        arrow.setInteractive();
+
+        // Add a click event listener to the arrow
+        arrow.on('pointerdown', () => {
+            this.scene.start('Cabin2'); // Transition to the Cabin2 scene
+        });
+
+        // Create a large invisible hitbox in the bottom-right corner (optional, remove if not needed)
         const hitbox = this.add.zone(canvasWidth - 100, canvasHeight - 100, 400, 400).setOrigin(1, 1);
         hitbox.setInteractive();
 
