@@ -12,15 +12,18 @@ class Good extends Phaser.Scene {
 
     create() {
         // Display the background image
-        const background = this.add.image(0, 0, 'cabinBackground').setOrigin(0, 0); // Position it at the top-left corner
+        const background = this.add.image(0, 0, 'cabinBackground').setOrigin(0, 0);
 
         // Display the first glow image in the same position as the cabin background
         const glow = this.add.image(0, 0, 'glow_01').setOrigin(0, 0);
-        glow.setScale(background.width / glow.width, background.height / glow.height); // Scale glow to match background size
+        glow.setScale(
+            background.width / glow.width,
+            background.height / glow.height
+        );
 
         // Create a tween to switch between glow_01 and glow_02
         this.time.addEvent({
-            delay: 500, // Change image every 500ms (adjust as needed)
+            delay: 500, // Change image every 500ms
             loop: true,
             callback: () => {
                 // Alternate between glow_01 and glow_02
@@ -29,7 +32,22 @@ class Good extends Phaser.Scene {
                 } else {
                     glow.setTexture('glow_01');
                 }
-            }
+            },
+        });
+
+        // Create a hitbox in the center of the screen
+        const hitbox = this.add.rectangle(
+            this.cameras.main.width / 2, // X position (center)
+            this.cameras.main.height / 2, // Y position (center)
+            400, // Width of the hitbox
+            400, // Height of the hitbox
+
+        );
+        hitbox.setInteractive(); // Make the hitbox interactive
+
+        // Add a click event listener to the hitbox
+        hitbox.on('pointerdown', () => {
+            this.scene.start('Page2'); // Transition to the Page2 scene
         });
     }
 }
