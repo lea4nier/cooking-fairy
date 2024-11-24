@@ -31,7 +31,7 @@ class Cabin2 extends Phaser.Scene {
             400, // Height
 
         );
-        hitbox.setStrokeStyle(2, 0xffffff); // Add a white border
+
         hitbox.setInteractive();
 
         // Function to create a draggable item

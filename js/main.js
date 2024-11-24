@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     Good,
                     Page2,
                     Cabin2,
-                    Boil  // This one too
+                    Boil,
+                    CabinEnd  // This one too
                 ],
                 scale: {
                     mode: Phaser.Scale.ScaleModes.FIT, // Fit canvas to screen
