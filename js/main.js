@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     Cabin1,            // Next scene after Page1
                     Day1Feather,       // Make sure this matches the name in Day1Feather.js
                     Day1Flower,        // This one too
-                    Day1CloverDrawer  // This one too
+                    Day1CloverDrawer,
+                    Good  // This one too
                 ],
                 scale: {
                     mode: Phaser.Scale.ScaleModes.FIT, // Fit canvas to screen

@@ -1,5 +1,3 @@
-// Cabin1.js
-
 class Cabin1 extends Phaser.Scene {
     constructor() {
         super({ key: 'Cabin1' });
@@ -14,12 +12,14 @@ class Cabin1 extends Phaser.Scene {
         const canvasWidth = this.game.config.width;
         const canvasHeight = this.game.config.height;
 
+        // Initialize itemsCollected to track selections
+        // 0 = Day1Feather, 1 = Day1Flower, 2 = Day1CloverDrawer, etc.
+        this.itemsCollected = [null, null, null];  // Placeholder for 3 item selections
+
         // Set up the background image and scale it proportionally to fit the screen
         const background = this.add.image(0, 0, 'cabinBackground');
         background.setOrigin(0, 0);  // Set origin to top-left corner
         background.setDisplaySize(canvasWidth, canvasHeight);  // Fit background to canvas size
-
-
 
 
         // Top-left corner hitbox (to transition to Day1Feather)
@@ -48,5 +48,19 @@ class Cabin1 extends Phaser.Scene {
         hitboxBottomRight.on('pointerdown', () => {
             this.scene.start('Day1CloverDrawer');
         });
+    }
+
+    // Add a method to handle updating the feedback based on selections
+    updateFeedback() {
+        const correctItems = this.itemsCollected.filter(item => item === 1).length;
+        const incorrectItems = this.itemsCollected.filter(item => item === -1).length;
+
+        this.selectionFeedback.setText(`Correct: ${correctItems}, Incorrect: ${incorrectItems}`);
+    }
+
+    // This can be called when transitioning back to Cabin1 after selections
+    setItemSelectionResults(items) {
+        this.itemsCollected = items;
+        this.updateFeedback();
     }
 }

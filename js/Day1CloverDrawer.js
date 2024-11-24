@@ -4,28 +4,44 @@ class Day1CloverDrawer extends Phaser.Scene {
     }
 
     preload() {
-        // Preload your images for Day1CloverDrawer scene
-        // this.load.image('clover1', 'assets/images/clover1.png');
-        // this.load.image('clover2', 'assets/images/clover2.png');
-        // this.load.image('clover3', 'assets/images/clover3.png');
+        // Load the 3 images for selection (adjust based on your assets)
+        this.load.image('clover1', 'assets/images/clover1.png');
+        this.load.image('clover2', 'assets/images/clover2.png');
+        this.load.image('clover3', 'assets/images/clover3.png');
     }
 
     create() {
-        // const gameWidth = this.sys.game.config.width;
-        // const gameHeight = this.sys.game.config.height;
+        const canvasWidth = this.game.config.width;
+        const canvasHeight = this.game.config.height;
 
-        // const padding = 50;
-        // const imageWidth = 400;
-        // const imageHeight = 300;
-        // const totalWidth = (imageWidth * 3) + (padding * 2);
+        // Set up the background color to white
+        this.cameras.main.setBackgroundColor('#FFFFFF');
 
-        // const startX = (gameWidth - totalWidth) / 2;
-        // const startY = gameHeight / 2 - imageHeight / 2;
+        // Define the spacing and center the images equally
+        const spacing = 600; // Adjust this value for the desired spacing
+        const startX = (canvasWidth - (spacing * 2 + 200)) / 2; // Calculate the starting X position to center the images
 
-        // this.add.image(startX, startY, 'clover1').setDisplaySize(imageWidth, imageHeight);
-        // this.add.image(startX + imageWidth + padding, startY, 'clover2').setDisplaySize(imageWidth, imageHeight);
-        // this.add.image(startX + 2 * (imageWidth + padding), startY, 'clover3').setDisplaySize(imageWidth, imageHeight);
+        // Create 3 images for the player to choose from, spaced equally
+        const imageObj1 = this.add.image(startX, canvasHeight / 2, 'clover1').setInteractive();
+        const imageObj2 = this.add.image(startX + spacing, canvasHeight / 2, 'clover2').setInteractive();
+        const imageObj3 = this.add.image(startX + spacing * 2, canvasHeight / 2, 'clover3').setInteractive();
+
+        // Set up pointer events for each image
+        imageObj1.on('pointerdown', () => this.handleSelection(1)); // Clover 1 is correct
+        imageObj2.on('pointerdown', () => this.handleSelection(2)); // Clover 2 is incorrect
+        imageObj3.on('pointerdown', () => this.handleSelection(3)); // Clover 3 is incorrect
+    }
+
+    handleSelection(selectedId) {
+        // The correct item is Clover 1 (for this example)
+        const correctItem = 1;
+
+        // If Clover 1 is selected, go to the 'Good' scene
+        if (selectedId === correctItem) {
+            this.scene.start('Good'); // Go to the Good scene
+        } else {
+            // If an incorrect clover is selected, stay in the current scene
+            this.scene.start('Day1CloverDrawer'); // Stay in this scene
+        }
     }
 }
-
-
