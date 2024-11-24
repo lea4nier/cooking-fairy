@@ -27,8 +27,8 @@ class Boil extends Phaser.Scene {
         // Timer text to display countdown
         this.timerText = this.add.text(canvasWidth / 2, 50, 'Timer: 15', {
             fontSize: '50px',
-            color: '#ffffff',
-            backgroundColor: '#000000',
+            color: '	#C4A484',
+            backgroundColor: '#1f612d',
             padding: 10
         }).setOrigin(0.5, 0.5);
         this.timerText.setVisible(false); // Hide initially
