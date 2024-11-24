@@ -1,12 +1,16 @@
-/* style.css */
-
-/* General body styles */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #222;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    /* Prevents scrolling */
 }
 
 /* Intro screen styling */
@@ -34,8 +38,25 @@ body {
 
 /* Phaser game container */
 #game-container {
-    width: 800px;
-    height: 600px;
-    margin: 0 auto;
-    display: none;
+    width: 100%;
+    /* Take up 100% of the width */
+    height: 100%;
+    /* Take up 100% of the height */
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Phaser game canvas */
+canvas {
+    display: block;
+    margin: auto;
+    background-color: black;
+    max-width: 100%;
+    /* Prevents the canvas from exceeding the viewport */
+    max-height: 100%;
+    /* Prevents the canvas from exceeding the viewport */
+    object-fit: contain;
+    /* Ensures the image is resized without distorting */
 }

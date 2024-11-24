@@ -1,17 +1,31 @@
-// main.js
+document.addEventListener('DOMContentLoaded', () => {
+    const startButton = document.getElementById('start-button');
+    if (startButton) {
+        startButton.addEventListener('click', () => {
+            // Hide the intro screen and show the Phaser game container
+            document.getElementById('intro-container').style.display = 'none';
+            document.getElementById('game-container').style.display = 'block';
 
-// Start the game when the "Start Game" button is clicked
-document.getElementById('start-button').addEventListener('click', () => {
-    // Hide the intro screen and show the Phaser game container
-    document.getElementById('intro-container').style.display = 'none';
-    document.getElementById('game-container').style.display = 'block';
-
-    // Start Phaser game with Page1 and Cabin1 scenes
-    new Phaser.Game({
-        type: Phaser.AUTO,
-        width: 2160,
-        height: 1500,
-        parent: 'game-container',
-        scene: [Page1, Cabin1], // List of scenes
-    });
+            // Start Phaser game with the scenes in the correct order
+            new Phaser.Game({
+                type: Phaser.AUTO,
+                width: 2160,
+                height: 1500,
+                parent: 'game-container',
+                scene: [
+                    Page1,             // First scene, where the game starts
+                    Cabin1,            // Next scene after Page1
+                    Day1Feather,       // Make sure this matches the name in Day1Feather.js
+                    Day1Flower,        // This one too
+                    Day1CloverDrawer  // This one too
+                ],
+                scale: {
+                    mode: Phaser.Scale.ScaleModes.FIT, // Fit canvas to screen
+                    autoCenter: Phaser.Scale.CENTER_BOTH, // Center canvas on screen
+                },
+            });
+        });
+    } else {
+        console.log("Start button not found");
+    }
 });
