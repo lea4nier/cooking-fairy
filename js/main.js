@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     Day1CloverDrawer,
                     Good,
                     Page2,
-                    Cabin2  // This one too
+                    Cabin2,
+                    Boil  // This one too
                 ],
                 scale: {
                     mode: Phaser.Scale.ScaleModes.FIT, // Fit canvas to screen

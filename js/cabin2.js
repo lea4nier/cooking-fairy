@@ -26,7 +26,7 @@ class Cabin2 extends Phaser.Scene {
             canvasHeight / 2.25, // Center Y
             400, // Width
             400, // Height
-            0xff0000, // Red color for visibility (semi-transparent)
+            0xff0000, // Semi-transparent red for visibility
             0.3 // Opacity
         );
         hitbox.setStrokeStyle(2, 0xffffff); // Add a white border
@@ -52,8 +52,8 @@ class Cabin2 extends Phaser.Scene {
                         hitbox.getBounds()
                     )
                 ) {
-                    item.x = hitbox.x; // Snap to hitbox X
-                    item.y = hitbox.y; // Snap to hitbox Y
+                    // Destroy the item if it is dropped inside the hitbox
+                    item.destroy();
                 }
             });
 
@@ -61,7 +61,7 @@ class Cabin2 extends Phaser.Scene {
         };
 
         // Create draggable items at the bottom left with scaling
-        const scale = 0.4; // Adjust the scale (50% of the original size)
+        const scale = 0.4; // Adjust the scale (40% of the original size)
         const padding = 20; // Spacing between items
         const startX = 150; // Starting X position
         const startY = canvasHeight - 300; // Adjusted Y position for better visibility
