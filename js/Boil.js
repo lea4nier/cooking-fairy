@@ -45,7 +45,7 @@ class Boil extends Phaser.Scene {
             canvasWidth / 2 - buttonWidth - buttonPadding,
             canvasHeight - 100,
             'Start Boil',
-            { fontSize: '20px', color: '#ffffff', backgroundColor: '#007bff', padding: 10 }
+            { fontSize: '20px', color: '#ffffff', backgroundColor: '#736785', padding: 10 }
         )
             .setOrigin(0.5, 0.5)
             .setInteractive()
@@ -56,7 +56,7 @@ class Boil extends Phaser.Scene {
             canvasWidth / 2 + buttonWidth + buttonPadding,
             canvasHeight - 100,
             'End Boil',
-            { fontSize: '20px', color: '#ffffff', backgroundColor: '#ff0000', padding: 10 }
+            { fontSize: '20px', color: '#ffffff', backgroundColor: '#948C5A', padding: 10 }
         )
             .setOrigin(0.5, 0.5)
             .setInteractive()
