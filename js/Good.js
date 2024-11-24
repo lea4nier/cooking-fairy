@@ -14,17 +14,11 @@ class Good extends Phaser.Scene {
     }
 
     create() {
-        // Check if the sound is loaded and available
-        const correctSound = this.sound.get('correctSound');
-
-        if (correctSound) {
-            console.log("Sound loaded successfully!");  // For debugging
-        } else {
-            console.error("Sound not loaded!");  // In case the sound isn't loaded
-        }
-
-        // Play the Correct sound immediately for testing
-        this.sound.play('correctSound');
+        // Add a small delay before playing the Correct sound
+        this.time.delayedCall(1000, () => {
+            // Play the Correct sound after the transition delay
+            this.sound.play('correctSound');
+        });
 
         // Display the background image
         const background = this.add.image(0, 0, 'cabinBackground').setOrigin(0, 0);

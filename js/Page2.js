@@ -6,9 +6,15 @@ class Page2 extends Phaser.Scene {
     preload() {
         // Load the background image
         this.load.image('page2', 'assets/images/Book_Day03.png');
+
+        // Load the PageFlip sound
+        this.load.audio('pageFlip', 'assets/sounds/PageFlip.mp3');
     }
 
     create() {
+        // Play the PageFlip sound as soon as the scene starts
+        this.sound.play('pageFlip');
+
         const canvasWidth = this.game.config.width;
         const canvasHeight = this.game.config.height;
 
@@ -25,7 +31,7 @@ class Page2 extends Phaser.Scene {
         background.setPosition(0, 0);  // Position the background at the top-left corner
 
         // Create a large invisible hitbox in the bottom-right corner
-        const hitbox = this.add.zone(canvasWidth - 100, canvasHeight - 100, 200, 100).setOrigin(1, 1);
+        const hitbox = this.add.zone(canvasWidth - 100, canvasHeight - 100, 400, 400).setOrigin(1, 1);
         hitbox.setInteractive();
 
         // Make the hitbox clickable to transition to the next scene

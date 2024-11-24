@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMERella Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <audio id="background-audio" autoplay loop>
+        <source src="Outro.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="click-sound" src="Click.mp3" preload="auto"></audio>
+
+    <div id="content"></div>
+
+    <script>
+        // List of game "pages" and their associated JavaScript files
+        const pages = [
+            { html: 'outro.html', script: 'outroScript.js' },
+            { html: 'endTitle.html', script: 'endTitleScript.js' },
+        ];
+
+        let currentPageIndex = 0;
+
+        // Load the first page (Opening Page) on initial load
+        window.onload = () => {
+            loadNextPage();
+        };
+
+        // Function to load the next page
+        function loadNextPage() {
+            if (currentPageIndex < pages.length) {
+                const { html, script } = pages[currentPageIndex];
+
+                fetch(html)
+                    .then(response => response.text())
+                    .then(htmlContent => {
+                        document.getElementById('content').innerHTML = htmlContent;
+
+                        // Dynamically load the corresponding script
+                        loadScript(script);
+
+                        currentPageIndex++;
+                    })
+                    .catch(err => console.error('Error loading page:', err));
+            }
+        }
+
+        // Function to dynamically load a script
+        function loadScript(scriptSrc) {
+            const script = document.createElement('script');
+            script.src = scriptSrc;
+            script.type = 'text/javascript';
+            document.body.appendChild(script);
+        }
+
+        // Make loadNextPage globally available
+        window.loadNextPage = loadNextPage;
+    </script>
+</body>
+</html>
