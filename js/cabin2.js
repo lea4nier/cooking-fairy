@@ -15,6 +15,9 @@ class Cabin2 extends Phaser.Scene {
         const canvasWidth = this.game.config.width;
         const canvasHeight = this.game.config.height;
 
+        // Variable to track the number of destroyed items
+        this.destroyedCount = 0;
+
         // Set up the background
         const background = this.add.image(0, 0, 'cabinBackground');
         background.setOrigin(0, 0);
@@ -26,8 +29,7 @@ class Cabin2 extends Phaser.Scene {
             canvasHeight / 2.25, // Center Y
             400, // Width
             400, // Height
-            0xff0000, // Semi-transparent red for visibility
-            0.3 // Opacity
+
         );
         hitbox.setStrokeStyle(2, 0xffffff); // Add a white border
         hitbox.setInteractive();
@@ -54,6 +56,12 @@ class Cabin2 extends Phaser.Scene {
                 ) {
                     // Destroy the item if it is dropped inside the hitbox
                     item.destroy();
+                    this.destroyedCount++;
+
+                    // Check if all items are destroyed
+                    if (this.destroyedCount === 3) {
+                        this.scene.start('Boil'); // Change to 'Boil' scene
+                    }
                 }
             });
 
